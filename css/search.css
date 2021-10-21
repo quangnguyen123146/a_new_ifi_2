@@ -1,0 +1,41 @@
+.prod_search_list {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  gap: 100px;
+}
+
+.prod_search_list .container {
+  margin: 0 auto;
+}
+
+.top_middle_part {
+  display: flex;
+  flex-direction: row;
+}
+
+.slide_searchbar {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+}
+
+@media screen and (max-width: 1597px) {
+  .prod_search_list {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media screen and (max-width: 1269px) {
+  .top_middle_part {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .prod_search_list {
+    grid-template-columns: auto;
+  }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/navbar/navbar_1.css">
+    <link rel="stylesheet" href="/css/navbar/navbar_2.css">
+    <link rel="stylesheet" href="/css/menu_barname/bar_left_outside.css">
+    <link rel="stylesheet" href="/css/menu_barname/footer_element.css">
+    <link rel="stylesheet" href="/css/menu_barname/hot_offers.css">
+    <link rel="stylesheet" href="css/cart/cart.css">
+    <link rel="stylesheet" href="/css/single_product/single.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src = "/js/cart.js" async></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="outer_container">
+        <div class="header_el"></div>
+        <div class="green_outline">
+            <div class="inside">
+                <a href="/index.html" style = "color: red;
+                margin-top: 23px;">HOME</a>
+                <p>|</p>
+                <a href="#" style = "color: black;
+                margin-top: 23px;">Households</a>
+            </div>
+        </div>
+        <div class="top_part_body">
+            <div class="left_side_el"></div>
+            <div class="image_con_el">
+                <img class = "store_img"src="https://demo.w3layouts.com/demos_new/template_demo/20-07-2017/grocery_store-demo_Free/725976873/web/images/12.jpg">
+                <div class="deals_new_prod">Best Deals For New Products</div>
+            </div>
+        </div>
+
+        <div class="single_product">
+            <div class="desc_box">
+                <div class="name_and_image">
+                    <h1 class="single_name"></h1>
+                    <img class = "prod_img" src="https://demo.w3layouts.com/demos_new/template_demo/20-07-2017/grocery_store-demo_Free/725976873/web/images/76.png">
+                </div>
+                <div class="prod_desc">
+                    <h1>DESCRIPTION</h1>
+                    <div class="word_contain">
+                        <p>
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        </p>
+                    </div>
+                    <div class="single_item_price_block">
+                        <h1 class="single_price"></h1>
+                        <h1 class = "og_price"></h1>
+                    </div>
+                    <div class="button_quantity">
+                        <button class="add_cart" onclick = "initCartfromsingle(event)">ADD TO CART</button>
+                        <input onchange = "plus_minus(event)" class = "plus_minus" type="number"
+                        value = "0">                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="prod_container">
+            <div class="cleaning_prod">
+
+            </div>
+    
+            <div class="utensils_prod">
+    
+            </div>
+    
+            <div class="pet_food">
+    
+            </div>
+    
+        </div>
+        <div class="bottom_el"></div>
+    </div>
+    
+    <script src = "/js/index.js"></script>
+    <script src = "/js/product_list.js"></script>
+    <script src = "/js/print_out_many.js"></script>
+    <script src = "/js/okZoom.js"></script>
+    <script src = '/js/search.js'></script>
+    <script>
+        $(document).ready(function() {
+            $('.prod_img').okzoom({
+            width: 150,
+            height: 150,
+            round: true,
+            background: "#fff",
+            backgroundRepeat: "no-repeat",
+            shadow: "0 0 5px #000",
+            border: "1px solid black"
+            });
+        })
+    </script>
+</body>
+</html>

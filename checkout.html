@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/navbar/navbar_1.css">
+    <link rel="stylesheet" href="/css/navbar/navbar_2.css">
+    <link rel="stylesheet" href="/css/menu_barname/footer_element.css">
+    <link rel="stylesheet" href="/css/root.css">
+    <link rel="stylesheet" href="/css/cart/cart.css">
+    <link rel="stylesheet" href="/css/menu_barname/bar_left_outside.css">
+    <link rel="stylesheet" href="/css/menu_barname/hot_offers.css">
+    <link rel="stylesheet" href="/css/checkout/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body ng-controller="testCtrl">
+    
+    <div class="outer_d">
+        <div class="header_el"></div>
+        <div class="green_outline">
+            <div class="inside">
+                <a href="/index.html" style = "color: red;
+                margin-top: 23px;">HOME</a>
+                <p>|</p>
+                <a href="#" style = "color: black;
+                margin-top: 23px;">Households</a>
+            </div>
+        </div>
+        <div class="image_big">
+            <div class="left_side_el"></div>
+            <div class="middle_side_el">
+                <h1 class = "checkout_text">Checkout</h1>
+                <div class="this_line"></div>
+                <h1 id = "shopping_contains"> </h1>
+                <table class = "checkout_whole">
+                    <tr class = "checkout_intro">
+                        <th>
+                            <div class="intro_container">
+                                <h1 style = "padding-top: 10px;">SL No.</h1>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="intro_container">
+                                <h1 style = "padding-top: 10px;">Product</h1>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="intro_container">
+                                <h1 style = "padding-top: 10px;">Quality</h1>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="intro_container">
+                                <h1 style = "padding-top: 10px;">Product Name</h1>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="intro_container">
+                                <h1 style = "padding-top: 10px;">Price</h1>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="intro_container">
+                                <h1 style = "padding-top: 10px;">Remove</h1>
+                            </div>
+                        </th>
+                    </tr>
+                    
+                </table>
+                <div class="username_checkout">
+                    <div class="whole_basket">
+                        <div class="basket_con">
+                            <h1>continue To Basket</h1>
+                        </div>
+                        <div class="basket_prod_con">
+                            
+                        </div>
+                        <div class="price_final">
+                            <h1>Total: </h1>
+                            <h1 class = "checkout_price"></h1>
+                        </div>
+                    </div>
+                    <div class="customer_details">
+                        <h1 class = "new_details">ADD A NEW DETAILS</h1>
+                        <form  method = "POST">
+                            <label for="fname">Full Name </label>
+                            <input type="text" class = "user_con" id="fname" name="fullname" placeholder="Your name..">
+                        
+                            <label for="mobile">Mobile number</label>
+                            <input type="text" class = "user_con" id="mobile_num" name="mobile" placeholder="Your phone number">
+
+                            <label for="LandMark">LandMark</label>
+                            <input type="text" class = "user_con" id="LandMark_id" name="LandMark" placeholder="LandMark">
+
+                            <label for="town">Town/City</label>
+                            <input type="text" class = "user_con" id="town_id" name="Town" placeholder="Town/City">
+                        
+                            <label for="address">Address type</label>
+                            <select class = "user_con" id="address" name="address">
+                              <option value="office">Office</option>
+                              <option value="home">Home</option>
+                              <option value="commercial">Commercial</option>
+                            </select>
+                          
+                            <input id = "submit_button" type="submit" value="Deliver to this address">
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list_product">
+
+    </div>
+        
+    <div class="bottom_el"></div>
+    <script src = "/js/search.js"></script>
+    <script src = "/js/index.js"></script>
+    <script src = "/js/int_cart_checkout.js"></script>
+    <script>
+        const cart = JSON.parse(localStorage.getItem("cart"));
+        var product = [];
+        var i = 0;
+        var total = 0;
+        $(document).ready(function() {
+        $("#submit_button").click(function(){
+        
+        for (let key in cart) {
+            var total_single = 0;
+            total += (cart[key].price * cart[key].count);
+            total_single += (cart[key].price * cart[key].count)
+            product[i] = {
+                id: cart[key].id,
+                name: cart[key].name,
+                price: cart[key].price,
+                og_price : cart[key].og_price,
+                count: cart[key].count,
+                image: cart[key].image,
+                total: total_single
+            }
+            i++;
+        }
+    
+        $.post("http://localhost:3000/user", {
+            name: $("#fname").val(),
+            mobile: $("#mobile_num").val(),
+            landmark : $("#LandMark_id").val(),
+            town: $("#town_id").val(),
+            address: $("#address").val(),
+            product_detail: product,
+            total : total
+        })
+            });
+        });
+        
+    </script>
+</body>
+</html>

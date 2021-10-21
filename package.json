@@ -1,0 +1,20 @@
+{
+  "name": "fe-started",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db": "json-server --watch db.json",
+    "server": "live-server",
+    "lint": "eslint --fix . --ext .js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "json-server": "^0.17.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
+}
